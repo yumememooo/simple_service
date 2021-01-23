@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"mywork/demo/internal/config"
-	"mywork/demo/internal/log"
 	"os"
 	"os/signal"
+	"simple_service/internal/config"
+	"simple_service/internal/log"
 	"syscall"
 	"time"
 )
