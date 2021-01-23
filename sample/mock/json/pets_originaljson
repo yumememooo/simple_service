@@ -58,11 +58,5 @@
   "animal_id": "",
   "animal_age": "",
   "animal_sex": "M"
- },
- {
-  "animal_kind": "",
-  "animal_id": "",
-  "animal_age": "",
-  "animal_sex": ""
  }
 ]

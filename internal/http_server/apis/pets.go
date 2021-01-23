@@ -2,6 +2,7 @@ package apis
 
 import (
 	"net/http"
+	"simple_service/internal/model"
 	"simple_service/internal/service"
 
 	"github.com/gin-gonic/gin"
@@ -18,6 +19,24 @@ func FindPet(c *gin.Context) {
 		BadRequest(c, err)
 	} else {
 		// c.Header(internal.CustomHeaderForTotal, totalCount)
+		c.JSON(http.StatusOK, res)
+	}
+}
+
+// @Tags pet
+// @Summary Add Pet
+// @Param Pet body model.Pet true "Pet"
+// @Success 200 {object} HttpResponse "success"
+// @Router /api/v1/pet [post]
+func AddPet(c *gin.Context) {
+	var p model.Pet
+	if err := c.ShouldBindJSON(&p); err != nil {
+		BadRequest(c, err)
+		return
+	}
+	if res, err := service.AddPet(p); err != nil {
+		BadRequest(c, err)
+	} else {
 		c.JSON(http.StatusOK, res)
 	}
 }

@@ -1,4 +1,11 @@
 definitions:
+  apis.HttpResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
   model.Pet:
     properties:
       animal_age:
@@ -30,6 +37,22 @@ paths:
               $ref: '#/definitions/model.Pet'
             type: array
       summary: Get Pet by animal_kind
+      tags:
+      - pet
+    post:
+      parameters:
+      - description: Pet
+        in: body
+        name: Pet
+        required: true
+        schema:
+          $ref: '#/definitions/model.Pet'
+      responses:
+        "200":
+          description: success
+          schema:
+            $ref: '#/definitions/apis.HttpResponse'
+      summary: Add Pet
       tags:
       - pet
   /api/v1/version:

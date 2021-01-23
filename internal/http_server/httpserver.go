@@ -21,7 +21,7 @@ func StartHttpServer(errChan chan error) {
 
 	engine := gin.New()
 	engine.Use(ginLogHandler(), gin.Recovery())
-	engine.Use(Cors())
+	engine.Use(Cors()) //for front-end
 	timeout := time.Duration(config.Configuration.Service.Timeout) * time.Millisecond
 	engine.Use(timeoutHandler(timeout))
 

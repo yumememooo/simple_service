@@ -49,6 +49,31 @@ var doc = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "pet"
+                ],
+                "summary": "Add Pet",
+                "parameters": [
+                    {
+                        "description": "Pet",
+                        "name": "Pet",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Pet"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/apis.HttpResponse"
+                        }
+                    }
+                }
             }
         },
         "/api/v1/version": {
@@ -69,6 +94,17 @@ var doc = `{
         }
     },
     "definitions": {
+        "apis.HttpResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
         "model.Pet": {
             "type": "object",
             "properties": {

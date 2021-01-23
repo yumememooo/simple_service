@@ -13,6 +13,7 @@ func loadRoutes(e *gin.Engine) {
 	{
 		myGroup.GET("version", apis.Version)
 		myGroup.GET("pet", apis.FindPet)
+		myGroup.POST("pet", apis.AddPet)
 
 	}
 }
