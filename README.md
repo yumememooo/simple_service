@@ -19,8 +19,31 @@ git config user.email "yumememooo@gmil.com"
 ```
 
 ## start project
+
+- you can run diff. config
 ```
-// you can run diff. config
 go run main.go -confDir configs --confEnv dev
+```
+
+- http_server.StartHttpServer 
+//start http & swagger 
+http://127.0.0.1:56888/api/swagger/index.html
+
+- swaggo Usage
+```
+ go get -u github.com/swaggo/swag/cmd/swag
+ git init
+ see more:https://github.com/swaggo/gin-swagger
+
+ if you can't find swag tool,make sure your env setting is correct
+ 
+      "terminal.integrated.env.windows": {
+        "GOPATH":"D:\\goWorkSpace",
+        "GOBIN":"${env:GOPATH}\\bin",
+        "PATH": "${env:PATH};${env:GOPATH};D:\\goWorkSpace\\bin"
+    },
+    then open cmd, check  echo %PATH%
+## 
+
 ```
 

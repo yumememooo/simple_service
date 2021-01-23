@@ -1,0 +1,16 @@
+info:
+  contact: {}
+  title: Aapater API
+  version: 0.0.5
+paths:
+  /api/v1/version:
+    get:
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: Get version
+      tags:
+      - version
+swagger: "2.0"

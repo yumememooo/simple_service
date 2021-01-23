@@ -1,6 +1,7 @@
 [Service]
-Port = 48168
+Port = 56888
 StartupMsg = 'This is Prod Microservice'
+Timeout=1000
 
 [Logger]
 Level = 'DEBUG'

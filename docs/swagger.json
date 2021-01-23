@@ -1,0 +1,26 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Aapater API",
+        "contact": {},
+        "version": "0.0.5"
+    },
+    "paths": {
+        "/api/v1/version": {
+            "get": {
+                "tags": [
+                    "version"
+                ],
+                "summary": "Get version",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

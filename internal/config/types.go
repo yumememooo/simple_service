@@ -10,6 +10,7 @@ type ConfigurationStruct struct {
 type ServiceInfo struct {
 	Port       int
 	StartupMsg string
+	Timeout    int
 }
 
 type LoggerInfo struct {

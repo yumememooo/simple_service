@@ -5,11 +5,15 @@ import (
 	"os"
 	"os/signal"
 	"simple_service/internal/config"
+	"simple_service/internal/http_server"
 	"simple_service/internal/log"
 	"syscall"
 	"time"
 )
 
+// @title Aapater API
+// @version 0.0.5
+// @description
 func main() {
 	start := time.Now()
 	if err := config.LoadConfig(); err != nil {
@@ -22,7 +26,7 @@ func main() {
 	log.ZapLogger.Warn("inital ok")
 	errs := make(chan error, 1)
 	listenForSignal(errs)
-
+	http_server.StartHttpServer(errs)
 	//Since返回t 到现在經過的时间
 	fmt.Println("Service started in:", time.Since(start))
 
