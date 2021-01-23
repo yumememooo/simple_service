@@ -12,7 +12,7 @@ import (
 )
 
 // @title Aapater API
-// @version 0.0.5
+// @version 0.0.1
 // @description
 func main() {
 	start := time.Now()

@@ -1,8 +1,37 @@
+definitions:
+  model.Pet:
+    properties:
+      animal_age:
+        type: string
+      animal_id:
+        type: string
+      animal_kind:
+        type: string
+      animal_sex:
+        type: string
+    type: object
 info:
   contact: {}
   title: Aapater API
-  version: 0.0.5
+  version: 0.0.1
 paths:
+  /api/v1/pet:
+    get:
+      parameters:
+      - description: search animal_kind:{貓/狗}
+        in: query
+        name: animal_kind
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Pet'
+            type: array
+      summary: Get Pet by animal_kind
+      tags:
+      - pet
   /api/v1/version:
     get:
       responses:

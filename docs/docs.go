@@ -24,6 +24,33 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/pet": {
+            "get": {
+                "tags": [
+                    "pet"
+                ],
+                "summary": "Get Pet by animal_kind",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "search animal_kind:{貓/狗}",
+                        "name": "animal_kind",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Pet"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/version": {
             "get": {
                 "tags": [
@@ -37,6 +64,25 @@ var doc = `{
                             "type": "object"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.Pet": {
+            "type": "object",
+            "properties": {
+                "animal_age": {
+                    "type": "string"
+                },
+                "animal_id": {
+                    "type": "string"
+                },
+                "animal_kind": {
+                    "type": "string"
+                },
+                "animal_sex": {
+                    "type": "string"
                 }
             }
         }
@@ -54,7 +100,7 @@ type swaggerInfo struct {
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
-	Version:     "0.0.5",
+	Version:     "0.0.1",
 	Host:        "",
 	BasePath:    "",
 	Schemes:     []string{},

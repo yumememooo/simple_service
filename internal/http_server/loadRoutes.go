@@ -9,9 +9,10 @@ import (
 func loadRoutes(e *gin.Engine) {
 	root := e.Group("api/v1")
 
-	myGroup := root.Group("version")
+	myGroup := root.Group("")
 	{
-		myGroup.GET("", apis.Version)
+		myGroup.GET("version", apis.Version)
+		myGroup.GET("pet", apis.FindPet)
 
 	}
 }

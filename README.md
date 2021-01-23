@@ -47,3 +47,5 @@ http://127.0.0.1:56888/api/swagger/index.html
 
 ```
 
+- find pet by animal_kind
+http://127.0.0.1:56888/api/v1/pet?animal_kind=%E8%B2%93
