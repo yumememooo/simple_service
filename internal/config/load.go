@@ -17,8 +17,8 @@ func LoadConfig() error {
 	var confEnv string
 	var confDir string
 
-	flag.StringVar(&confDir, "confdir", "", "Specify config directory ex:configs")
-	flag.StringVar(&confEnv, "confenv", "", "Specify a dev/prod.")
+	flag.StringVar(&confDir, "confDir", "", "Specify config directory ex:configs")
+	flag.StringVar(&confEnv, "confEnv", "", "Specify a dev/prod.")
 	flag.Parse()
 
 	path := determinePath(confDir, confEnv)

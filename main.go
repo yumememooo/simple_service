@@ -19,9 +19,9 @@ func main() {
 	log.InitLogger()
 	fmt.Println("start program:", config.Configuration.Service.StartupMsg)
 	fmt.Println("connect program:", config.Configuration.Services["Elastic"].Host)
-	log.Logger.Warn("inital ok")
+	log.ZapLogger.Warn("inital ok")
 	errs := make(chan error, 1)
-	listenForＳignal(errs)
+	listenForSignal(errs)
 
 	//Since返回t 到现在經過的时间
 	fmt.Println("Service started in:", time.Since(start))
@@ -30,7 +30,7 @@ func main() {
 	fmt.Println("terminating:", c)
 }
 
-func listenForＳignal(errChan chan error) {
+func listenForSignal(errChan chan error) {
 	go func() {
 		c := make(chan os.Signal)
 		signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)

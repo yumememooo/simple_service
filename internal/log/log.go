@@ -2,14 +2,14 @@ package log
 
 import (
 	"os"
-	"time"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-var Logger *zap.Logger
+var ZapLogger *zap.Logger
+var SugarLogger *zap.SugaredLogger
 
 func InitLogger() {
 	hook := getLogWriter()
@@ -21,15 +21,15 @@ func InitLogger() {
 		zapcore.NewMultiWriteSyncer(zapcore.AddSync(os.Stdout), hook),
 		zapcore.DebugLevel)
 
-	Logger = zap.New(core, zap.AddCaller()) //印出log的位置
-	Logger.Debug("POK")
-	Logger.Info("failed to fetch URL",
-		zap.String("url", "uedf"),
-		zap.Int("attempt", 3),
-		zap.Duration("backoff", time.Second),
-	)
-	sugarLogger := Logger.Sugar()
-	sugarLogger.Infof("Success! statusCode = %s for URL %s", "OK", "OK")
+	ZapLogger = zap.New(core, zap.AddCaller()) //印出log的位置
+	// ZapLogger.Debug("POK")                     // ZapLogger sample
+	// ZapLogger.Info("failed to fetch URL",
+	// 	zap.String("url", "uedf"),
+	// 	zap.Int("attempt", 3),
+	// 	zap.Duration("backoff", time.Second),
+	// )
+	SugarLogger = ZapLogger.Sugar()
+	//SugarLogger.Infof("Success! statusCode = %s for URL %s", "OK", "OK")  // SugarLogger sample
 
 }
 
